@@ -7,6 +7,12 @@ description: Design or review information and data dashboards in Figma using exp
 
 Turn data and a decision brief into an editable Figma dashboard that supports accurate interpretation. Preserve the user's intent and the actual meaning of every number. This repository combines Bear's 100-rule and 142-rule documents with a Figma design workflow.
 
+## When the user types help or tutorial
+
+For `help`, “what does this do?” or “where do I start?”, run `./fdv help` (use the repository's actual absolute path if installed elsewhere). Explain the supported dashboard panels and local-versus-Figma steps, then link [the tutorial](tutorial/README.md) and offer `tutorial` as the next chat command. Help is informational: do not create a workspace, draw or authenticate merely because help was requested.
+
+For `tutorial`, run `./fdv tutorial` and guide the user through [the walkthrough](tutorial/README.md), starting at the first incomplete step. Establish the target Figma file only when needed. Preserve synthetic labels and save actual execution receipts; never imply the CLI executes Figma itself.
+
 ## Begin with the decision
 
 Read [the rulebook](references/rulebook.md). Establish the primary audience, ranked questions, dashboard type, decision cadence, device and next action. If known from the conversation, record them and continue. Ask only for information that materially blocks a useful design. Use `./fdv init <workspace>` for a synthetic example; never pass its numbers off as user data.

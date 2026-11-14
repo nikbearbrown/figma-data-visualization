@@ -4,12 +4,15 @@ Design information and data dashboards in Figma from explicit audience questions
 
 This is an agent skill plus a small, dependency-free command-line toolkit. It preserves Bear's two supplied documents: **100 rules (A1–A100)** and **142 rules (R1–R142)**. It adds a Figma workflow informed by [figma-appdesigner](https://github.com/nikbearbrown/figma-appdesigner): variables, reusable components, auto-layout, recorded requests, measured findings and a concrete handoff.
 
+Type **help** in agent chat with this skill active, or run `./fdv help` in a terminal. It explains the toolkit and points to the [practical tutorial](tutorial/README.md).
+
 ## Start
 
 Requires Python 3.10+. Node.js 18+ is needed only for renderer contract tests. Actual drawing requires a Figma Design file and an authorized Figma integration supporting Plugin API execution; the CLI itself does not log in or send data to Figma.
 
 ```sh
 ./fdv help
+./fdv tutorial
 ./fdv init /tmp/my-dashboard
 ./fdv rules R68
 ./fdv check /tmp/my-dashboard/dashboard.json

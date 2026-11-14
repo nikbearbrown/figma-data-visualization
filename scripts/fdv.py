@@ -168,15 +168,38 @@ def audit(data):
 def write_new(path,text):
  p=Path(path);p.parent.mkdir(parents=True,exist_ok=True)
  with p.open('x') as f:f.write(text)
+HELP = """Figma Data Visualization — design editable dashboards from questions and data.
+
+Creates native KPI, bar, line and table panels, metric calculations, eight
+illustrative states, Figma receipts, measurement scripts and draft handoffs.
+Preserves 242 dashboard rules. Does not log in to Figma, run the drawing script,
+refresh live data or certify production accessibility.
+
+Start here:
+  ./fdv tutorial                 practical walkthrough (prints tutorial/README.md)
+  ./fdv init /tmp/my-dashboard    create a new synthetic example workspace
+  ./fdv check SPEC                validate context, metric math and chart inputs
+  ./fdv rules [ID or text]        look up the preserved dashboard rules
+  ./fdv figma SPEC --out SCRIPT   generate a native Figma Design drawing body
+  ./fdv measure RECEIPT --out JS  generate a read-only measurement body
+  ./fdv audit MEASUREMENTS        check receipt coverage and measured findings
+  ./fdv handoff SPEC --out MD     create a draft delivery checklist
+
+In agent chat with this skill active, type help or tutorial.
+In a terminal, use ./fdv help or ./fdv tutorial; bare help belongs to your shell.
+Tutorial: https://github.com/nikbearbrown/figma-data-visualization/blob/main/tutorial/README.md
+"""
 def main():
+ if len(sys.argv)==1 or sys.argv[1:] in (['help'],['--help'],['-h']):print(HELP);return 0
  ap=argparse.ArgumentParser(description=__doc__);sub=ap.add_subparsers(dest='command')
- sub.add_parser('help');a=sub.add_parser('init');a.add_argument('directory')
+ sub.add_parser('help');sub.add_parser('tutorial');a=sub.add_parser('init');a.add_argument('directory')
  a=sub.add_parser('rules');a.add_argument('query',nargs='?',default='')
  for cmd in ('check','figma','handoff','measure','audit'):
   a=sub.add_parser(cmd);a.add_argument('file')
   if cmd in ('figma','handoff','measure'):a.add_argument('--out',required=True)
  args=ap.parse_args()
  if args.command in (None,'help'):ap.print_help();print('\ninit DIR | rules [ID or text] | check SPEC | figma SPEC --out SCRIPT\nmeasure RECEIPT --out SCRIPT | audit MEASUREMENTS | handoff SPEC --out MARKDOWN');return 0
+ if args.command=='tutorial':print((ROOT/'tutorial/README.md').read_text());return 0
  if args.command=='init':
   p=Path(args.directory);p.mkdir(parents=True,exist_ok=False);write_new(p/'dashboard.json',(ROOT/'examples/program-operations.json').read_text());print(p/'dashboard.json');return 0
  if args.command=='rules':
