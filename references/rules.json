@@ -1,0 +1,1696 @@
+[
+  {
+    "id": "A1",
+    "text": "Name the primary audience. Specify who will use the dashboard, their knowledge, their responsibilities, and the conditions under which they will view it. “Everyone in the organization” is usually too broad to guide design.",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 18,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A2",
+    "text": "Write the intended use as a sentence. For example: “Each Monday, program managers identify overdue submissions and determine which fellows need follow-up.” This sentence should guide the content and interaction choices.",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 19,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A3",
+    "text": "List the questions the dashboard must answer. Examples include “What changed?”, “Where is performance below target?”, and “Which cases require review?” Prioritize these questions before choosing charts.",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 20,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A4",
+    "text": "Give every panel a purpose. A component should support a question, comparison, explanation, or action. Remove panels whose only justification is that the underlying data are available.",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 21,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A5",
+    "text": "Match the update frequency to the decision. A monthly planning dashboard may need monthly data. An incident dashboard may need updates within seconds. Faster refresh is useful only when it improves the intended task.",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 22,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A6",
+    "text": "Distinguish quick monitoring from extended analysis. A monitoring view should make important conditions immediately noticeable. An analytical view should support careful comparison and exploration. Provide separate views when these needs conflict.",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 23,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A7",
+    "text": "Confirm that a dashboard is the appropriate format. A report may explain a complex finding better; a table may support lookup better; an alert may serve an urgent event better. ONS guidance explicitly recommends justifying dashboards through user needs and considering their maintenance and interpretation costs. Office for National Statistics",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 24,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A8",
+    "text": "Create a metric dictionary before building the interface. For each measure, define its name, formula, unit, population, exclusions, time basis, aggregation method, source, and owner. Terms such as “active,” “completed,” and “successful” require explicit definitions.",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 26,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A9",
+    "text": "Treat the denominator as part of the result. “80% completed” is incomplete without explaining completed out of what. Where sample size matters, show both the percentage and the underlying count, such as “48 of 60.”",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 27,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A10",
+    "text": "Define what one record represents. A record might represent a person, transaction, event, organization, or daily snapshot. Establish this before joining or aggregating data so the dashboard does not accidentally count the same entity multiple times.",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 28,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A11",
+    "text": "Make provenance inspectable. Users should be able to identify the source, responsible producer, and relevant methodology. Label provisional, revised, estimated, or modeled figures accurately. Official statistical dashboard guidance emphasizes source links, status, revisions, and responsible ownership. Office for Statistics Regulation",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 29,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A12",
+    "text": "Pair important values with a meaningful comparison. A KPI should usually include a target, previous period, benchmark, or historical range. Name the comparison explicitly; an unexplained upward arrow or “+12%” is insufficient.",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 30,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A13",
+    "text": "Define what improvement means. Higher is desirable for some measures, lower for others, and a bounded range for others. Do not automatically color every increase green.",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 31,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A14",
+    "text": "Balance activity measures with outcome and quality measures. Submissions, visits, and hours describe activity. Completion, usefulness, reliability, and successful outcomes answer different questions. Include measures that reveal the consequences of increasing volume.",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 32,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A15",
+    "text": "Use appropriate numerical precision. Calculate using adequate precision, then format for the task. Avoid decimal places that imply unsupported accuracy. Keep rounding, separators, currency, and abbreviations consistent across cards, charts, tables, and exports.",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 33,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A16",
+    "text": "Distinguish zero from missing and unavailable data. A measured zero, absent observation, suppressed value, pending report, and failed query mean different things. Give them different labels or states.",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 35,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A17",
+    "text": "Aggregate percentages using the correct components. If one group succeeds in 9 of 10 cases and another in 1 of 100, the pooled rate is \\(10/110 = 9.1\\%\\). Averaging 90% and 1% gives 45.5%, which answers a different question.",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 36,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A18",
+    "text": "Respect measures that cannot simply be added or averaged. Do not sum overlapping distinct-user counts, add inventory snapshots across time, or average daily percentiles and call the result a monthly percentile. Recompute from suitable underlying data.",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 37,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A19",
+    "text": "Make periods and populations comparable. Check eligibility, coverage, units, collection methods, seasonality, and period length. Clearly flag a partial current month when comparing it with a complete previous month.",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 38,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A20",
+    "text": "Distinguish percentage points from percentage change. Moving from 20% to 25% is an increase of 5 percentage points and a 25% relative increase. Relative change from a zero baseline is undefined under the usual formula.",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 39,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A21",
+    "text": "Inspect what averages and totals conceal. Include distributions, subgroup results, or tail measures when variation affects the decision. An overall improvement may coexist with deterioration for an important subgroup.",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 40,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A22",
+    "text": "Show uncertainty when it could change interpretation. Use appropriate intervals or bands and identify what they represent: confidence intervals, prediction intervals, credible intervals, or scenario ranges. Make the boundary between observations and forecasts visible. Office for National Statistics",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 41,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A23",
+    "text": "Separate statistical evidence from practical importance. A detectable difference may be too small to matter. An apparent difference may be too uncertain to support a conclusion. Overlapping individual confidence intervals alone do not establish that a difference is statistically insignificant. CDC",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 42,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A24",
+    "text": "Keep observations separate from causal explanations. A chart can show an association or a change following an event. Establishing that the event caused the change requires additional evidence. Annotations and summaries should preserve that distinction.",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 43,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A25",
+    "text": "Choose the relationship before choosing the chart. Identify whether the user needs to compare magnitudes, inspect a trend, understand a distribution, examine a relationship, or locate a geographic pattern. Chart choice should follow that task. Office for National Statistics",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 45,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A26",
+    "text": "Prefer aligned positions for precise comparisons. Bars and dot plots on a common scale are strong defaults when users must judge small differences. Graphical-perception research supports common-position encodings over angle and area for the proportional judgments studied. hci.stanford.edu",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 46,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A27",
+    "text": "Use tables when exact lookup is the main task. Tables are appropriate for precise values, mixed units, record inspection, and operational lists. A dashboard does not need a chart for every dataset.",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 47,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A28",
+    "text": "Use pie and doughnut charts selectively. They can communicate a few distinct parts of one meaningful whole. Avoid them for overlapping categories, separate group rates, incomplete totals, or close comparisons among similarly sized segments. Office for National Statistics",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 48,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A29",
+    "text": "Use maps when geography matters to the question. Geographic labels alone do not justify a map. A regional ranking may be clearer as bars. For shaded-area maps, choose an appropriately standardized measure and explain the denominator. Office for National Statistics",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 49,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A30",
+    "text": "Require a clear benefit from specialized charts. Consider small multiples before adding more overlapping series. Use gauges, radar charts, treemaps, and Sankey diagrams when their structure helps the intended audience answer the question.",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 50,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A31",
+    "text": "Anchor ordinary magnitude bars at zero. Positive and negative bars should extend from a zero baseline. Interval displays, such as Gantt or range charts, encode something different and need appropriately explained endpoints.",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 68,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A32",
+    "text": "Allow cropped line or scatterplot axes when justified. A nonzero origin can reveal meaningful variation. Keep bounds and reference values readable so the apparent change remains interpretable. ONS explicitly distinguishes these charts from magnitude bars and filled-area charts. Office for National Statistics",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 69,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A33",
+    "text": "Use common scales for direct magnitude comparisons. If neighboring charts use independent scales, make that obvious. Independent scales can support examination of shape, but they change what comparisons are valid.",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 70,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A34",
+    "text": "Avoid dual axes as the default. Prefer aligned separate charts or an explicitly indexed comparison when appropriate. Two independently adjustable axes can make unrelated movements appear closely aligned. Office for National Statistics",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 71,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A35",
+    "text": "Explain nonlinear scales. Use logarithmic scales for suitable questions, such as comparing multiplicative change. Explain that equal distances represent equal ratios. Do not silently transform, omit, or replace values that the scale cannot represent.",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 72,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A36",
+    "text": "Preserve time spacing and missingness. Unequal time intervals should occupy unequal distances on a continuous time axis. Leave visible gaps where regularly expected observations are missing instead of implying uninterrupted measurement. Office for National Statistics",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 73,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A37",
+    "text": "Scale area by area. If circles encode quantity through area, their radii must vary with the square root of the values. Doubling a circle’s radius quadruples its area.",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 74,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A38",
+    "text": "Avoid visual effects that alter apparent quantities. Decorative 3D, perspective, excessive shadows, and inappropriate smoothing can change how values appear. Do not hide outliers or clip extremes without making the treatment clear.",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 75,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A39",
+    "text": "Make ordering and grouping meaningful. Sort by value for ranking tasks, but preserve natural order for time, ages, or process stages. Explain histogram bins, map classes, and other group boundaries; keep them consistent across comparisons.",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 76,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A40",
+    "text": "Put the primary question and most consequential information first. The initial view should establish the dashboard’s subject, scope, and main condition. Allocate prominence according to the user’s priorities.",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 78,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A41",
+    "text": "Place evidence that must be compared near each other. Keep a KPI, its benchmark, and its historical trend together. Users should not have to remember a number from another tab to make an important comparison.",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 79,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A42",
+    "text": "Allocate space according to the task. A detailed trend may deserve more room than a summary count. Equal-sized cards are appropriate only when they support the information hierarchy.",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 80,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A43",
+    "text": "Use a consistent layout system. Align components, standardize spacing, and use clear headings. Let whitespace and grouping communicate relationships. Add borders and containers only when they clarify structure.",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 81,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A44",
+    "text": "Preserve a logical reading order across devices. The mobile layout should retain the intended priority and relationships. The programmatic reading order should also make sense to someone using assistive technology.",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 82,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A45",
+    "text": "Use progressive disclosure without hiding critical context. Put essential warnings and interpretation details next to the result. Move extended definitions and methodology into accessible supporting layers. OSR recommends this layered approach to communicating quality. Office for Statistics Regulation",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 83,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A46",
+    "text": "Treat a single-screen layout as a contextual goal. It can suit monitoring, but scrolling is acceptable when the important information remains prominent. Do not shrink text or remove necessary context to force everything into one viewport. Office for National Statistics",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 84,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A47",
+    "text": "Test typography at actual viewing sizes. Use readable labels, predictable heading levels, and adequate line spacing. In tables, align comparable numbers consistently, usually to the right, and consider tabular numerals to aid scanning.",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 85,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A48",
+    "text": "Give color a defined job. Use it to distinguish categories, encode magnitude, indicate deviation, or direct attention. When position and labels already distinguish categories, a single color may be sufficient.",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 87,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A49",
+    "text": "Match the palette to the data. Use distinct colors for unordered categories, ordered lightness for increasing magnitude, and a diverging palette around a meaningful midpoint. Avoid implying an order that does not exist.",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 88,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A50",
+    "text": "Keep color meanings stable. A category should retain its color across panels, filters, and visits. Reserve status colors for consistent meanings. Check both light and dark themes if both are supported. Office for National Statistics",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 89,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A51",
+    "text": "Never make color the sole carrier of important meaning. Pair status colors with text or symbols, and distinguish series with labels, markers, or line styles where needed. This is an explicit WCAG requirement. W3C",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 90,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A52",
+    "text": "Avoid rainbow palettes for ordered quantitative values. Uneven perceptual gradients can create apparent boundaries and conceal real changes. Use a palette whose perceived ordering matches the numerical ordering. pmc.ncbi.nlm.nih.gov",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 91,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A53",
+    "text": "Write titles that establish the subject and scope. Identify the measure, relevant population, geography, and period through the title and subtitle. If a title states a finding, ensure it updates correctly when the data or filters change.",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 92,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A54",
+    "text": "Make units and abbreviations unambiguous. Specify currency, percentage, count, duration, rate denominator, or index base. Explain unfamiliar acronyms. Use time zones where they affect interpretation.",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 93,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A55",
+    "text": "Reduce unnecessary label lookup. Prefer direct labels when they remain legible. Keep legends close to their charts and ordered consistently. Use concise annotations for material events, definition changes, revisions, and unusual observations. Office for National Statistics",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 94,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A56",
+    "text": "Provide a useful initial view. Users should learn something before configuring controls. Choose sensible defaults and reveal the most important information immediately. Interactivity should serve a concrete user need. Office for National Statistics",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 96,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A57",
+    "text": "Make interactive elements recognizable. Users should be able to tell what can be selected, expanded, sorted, or opened. Avoid making unlabeled icons or invisible chart gestures the only route to essential functions.",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 97,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A58",
+    "text": "Show which controls affect which panels. Distinguish dashboard-wide filters from local filters. If a comparison or benchmark remains fixed while other data change, label that behavior.",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 98,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A59",
+    "text": "Keep the active scope visible. Show selected dates, geography, categories, and other important restrictions. Where useful, show how much data remains, such as “84 of 120 records.”",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 99,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A60",
+    "text": "Define filter behavior precisely. Clarify whether selections combine with AND or OR, what “All” means, whether dates include their endpoints, and when changes take effect. Prevent or explain incompatible combinations.",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 100,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A61",
+    "text": "Make exploration reversible. Provide clear reset controls and predictable back behavior. Preserve relevant state when users move between overview and detail views.",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 101,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A62",
+    "text": "Preserve context during drill-down. Identify the selected subset and its relationship to the whole. A user inspecting one team should still know the period, population, and comparison that led to that view.",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 102,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A63",
+    "text": "Keep all representations synchronized. Charts, KPI cards, descriptions, tables, and exports must reflect the same selection. Handle delayed responses so an older query cannot overwrite a newer result.",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 103,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A64",
+    "text": "Make shared views reproducible. Preserve relevant filter state in saved views or share links. Distinguish a live view from a frozen snapshot, and a rolling range such as “last 30 days” from fixed dates.",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 104,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A65",
+    "text": "Make essential functions operable by keyboard. Include filtering, sorting, inspecting values, opening detail views, exporting, and dismissing overlays. Maintain a logical focus order, visible focus, and a clear way out of every component. W3C",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 107,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A66",
+    "text": "Meet text-contrast requirements. Ordinary text generally needs at least 4.5:1 contrast; large text needs 3:1. WCAG defines large text as at least 18 points, or 14 points bold, with relevant exceptions and equivalent provisions. W3C",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 108,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A67",
+    "text": "Check meaningful graphics and controls separately. Visual information needed to identify controls, their states, or essential graphical content generally needs 3:1 contrast against adjacent colors. This does not mean every decorative gridline needs that contrast. W3C",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 109,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A68",
+    "text": "Provide meaningful alternatives to charts. Include an accessible name and a description of important relationships or findings. Offer a properly structured data table when exact values matter. Keep these alternatives synchronized with the selected view. W3C",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 110,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A69",
+    "text": "Do not make essential information hover-only. Make equivalent information available through keyboard and touch. Custom hover or focus content generally needs to be dismissible, hoverable, and persistent under the conditions specified by WCAG. W3C",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 111,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A70",
+    "text": "Make controls large enough or sufficiently separated. WCAG 2.2 AA specifies 24 × 24 CSS pixels for pointer targets, with spacing and other exceptions. Larger controls are often preferable for frequent touch use. W3C",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 112,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A71",
+    "text": "Provide alternatives to dragging. Range selection, panel rearrangement, and similar interactions should also work through suitable buttons, fields, or simple pointer actions. Keyboard support alone does not satisfy the separate requirement for a non-dragging pointer alternative. W3C",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 113,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A72",
+    "text": "Support enlargement and reflow. Text should remain usable at 200% enlargement. Support reflow at a width equivalent to 320 CSS pixels; essential two-dimensional content has exceptions, but surrounding controls and explanations still need to adapt. W3C",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 114,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A73",
+    "text": "Make status and error messages accessible. Announce results such as “12 records found” or “Export ready” appropriately without taking focus. Describe errors and recovery in text. Avoid announcing every changing data point. W3C",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 115,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A74",
+    "text": "Separate the data period from the refresh time. “Updated today” does not establish that the underlying observations are current. Show the period represented, relevant source freshness, and last successful refresh; use panel-level dates when sources differ. Office for Statistics Regulation",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 117,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A75",
+    "text": "Define when data become stale. Set freshness expectations according to the decision. A missed update should produce a visible stale or incomplete state, including its effect on interpretation.",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 118,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A76",
+    "text": "Design every important interface state. Specify loading, empty results, no source data, partial results, failed retrieval, stale data, and denied access. A failed request must never appear as a valid zero or successful “all clear.”",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 119,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A77",
+    "text": "Label demonstration data clearly. Keep sample and production data distinguishable. Loading placeholders should look like loading placeholders; they should not display plausible invented figures that users could mistake for measurements.",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 120,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A78",
+    "text": "Give users control over automatic updates. Automatically updating information shown alongside other content generally needs pause, stop, hide, or update-frequency control unless essential. Clearly label a paused view. The five-second condition applies to moving content, not to this auto-update requirement. W3C",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 121,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A79",
+    "text": "Keep updates visually stable. Avoid moving rows beneath the pointer, changing panel sizes unexpectedly, or repeatedly restarting animations. Respect reduced-motion preferences. Use animation only when it helps users understand a change.",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 122,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A80",
+    "text": "Measure performance against real tasks. Track time to useful data and time from filter selection to correct results. For web delivery, Google’s general “good” thresholds are LCP ≤ 2.5 seconds, INP ≤ 200 milliseconds, and CLS ≤ 0.1 at the 75th percentile. These do not replace dashboard-specific measures. web.dev",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 123,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A81",
+    "text": "Scale rendering without silently changing meaning. Aggregation, sampling, clustering, and downsampling should preserve the features relevant to the task. Disclose material reductions and provide suitable detail access. Check that performance optimizations do not conceal consequential spikes or rare cases.",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 124,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A82",
+    "text": "Make alerts actionable. An alert should explain the condition, severity, responsible person or team, and next step. Reserve interruptions for conditions that warrant attention; Google’s SRE guidance emphasizes urgency and actionability in alert design. sre.google",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 126,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A83",
+    "text": "Distinguish targets from statistical limits. A desired target, a specification limit, a confidence interval, and a process-control limit have different meanings. A process can be stable while failing requirements. Explain what each threshold represents. itl.nist.gov",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 127,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A84",
+    "text": "Manage the alert lifecycle. Group duplicate alerts, distinguish acknowledged from resolved conditions, and show persistence or recurrence when relevant. Review alerts that repeatedly produce no useful response.",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 128,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A85",
+    "text": "Give informational items enough context for action. A task, incident, approval, or document entry should identify what it is, who owns it, its status, relevant dates, and where supporting evidence can be inspected.",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 129,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A86",
+    "text": "Base status and progress on observable conditions. Define what “complete,” “blocked,” “at risk,” and “approved” mean. Display the age of a status when it can become stale. Avoid unsupported percentages of completion.",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 130,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A87",
+    "text": "Prioritize information according to the work. Urgency, deadlines, dependencies, and unresolved blockers may matter more than recency. Provide views that help users distinguish new information from work that still needs attention.",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 131,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A88",
+    "text": "Enforce permissions where data are served. Check access for each request, including drill-downs, exports, and saved views. Hiding a control in the interface is insufficient. Apply appropriate permissions to cached and static outputs as well. OWASP Cheat Sheet Series",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 133,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A89",
+    "text": "Review disclosure through combinations of values. Sensitive information can become recoverable through totals, small groups, or repeated filtering. Suppressing one cell may be insufficient when its value can be deduced from other cells. Apply appropriate disclosure controls. census.gov",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 134,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A90",
+    "text": "Preserve context in exports and print views. Include titles, units, selected scope, date range, source, and relevant caveats. Make clear whether an export contains the displayed subset or a broader dataset.",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 135,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A91",
+    "text": "Record consequential changes. Track changes to metric definitions, thresholds, source mappings, permissions, and editable records. Users should be able to understand why a historical value or status changed.",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 136,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A92",
+    "text": "Assign ownership for the dashboard’s lifecycle. Name responsibility for data quality, refresh failures, user feedback, accessibility, and maintenance. Review relevance periodically and retire dashboards that no longer meet a useful need. Government Analysis Function",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 137,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A93",
+    "text": "Generate numerical claims from verified calculations. Bind summaries to the actual query results, filters, period, and metric definitions. Require a traceable calculation or source for every generated numerical statement.",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 140,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A94",
+    "text": "Label the nature of generated content. Distinguish measured facts, model predictions, proposed explanations, and recommendations. A fluent explanation should not silently acquire the status of an observed fact.",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 141,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A95",
+    "text": "Review AI-produced dashboards through their behavior and data. Check formulas, joins, denominators, permissions, interaction states, and accessibility. A convincing screenshot cannot establish that the underlying calculations and workflows are correct.",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 142,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A96",
+    "text": "Prototype with realistic and difficult data. Include long labels, negative values, tiny and large values, missing periods, rare categories, empty selections, and extreme outliers. Neat demonstration data conceal design weaknesses.",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 144,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A97",
+    "text": "Reconcile representative results independently. Trace selected values from source records through transformations to the dashboard and export. Check duplicates, join multiplication, time-zone boundaries, zero denominators, and late or corrected records.",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 145,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A98",
+    "text": "Test whether users reach correct conclusions. Ask realistic questions: “Which team needs attention?”, “How much did performance change?”, and “What limits this comparison?” Observe their reasoning and errors without coaching them through the interface.",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 146,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A99",
+    "text": "Combine automated checks with human accessibility testing. Test keyboard use, screen readers, zoom, touch, and meaningful task completion, ideally with people with disabilities. W3C explicitly states that automated tools alone cannot establish accessibility. W3C",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 147,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "A100",
+    "text": "Measure usefulness after launch. Review whether users can detect important conditions, interpret evidence correctly, and complete their work efficiently. Use those findings to simplify, revise, or remove components. Page views alone do not demonstrate usefulness.",
+    "source": "references/sources/dashboard-rules-original.txt",
+    "line": 148,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R1",
+    "text": "Name the decision. Write down the decisions or actions the dashboard is meant to inform. If you cannot name one, you are building a report, an archive, or a status ornament. Those can be legitimate, but they follow different rules and should not be called dashboards.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 24,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R2",
+    "text": "Name one primary audience. A dashboard that tries to serve executives, analysts, and frontline operators at once serves none of them well. Different audiences need different layers or different dashboards.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 26,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R3",
+    "text": "Write the questions, ranked. List the questions the audience brings, in priority order. Every element must trace to a question on the list, and anything that cannot is cut. This list is both the specification and the test plan (R137).",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 28,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R4",
+    "text": "Classify the dashboard type and let it set the parameters. Type determines refresh rate, information density, how much interaction is appropriate, and whether scrolling is acceptable. Decide it before layout.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 30,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R5",
+    "text": "Specify the context of use. Record the device, display size, viewing distance, time available (a five-second glance or a two-hour session), frequency of use, and environment (a projector in a meeting, a wall monitor, a phone between meetings). Each one changes the design.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 32,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R6",
+    "text": "Define the action path. For every metric that can go wrong, the dashboard should show what happens next: a drill-down, a runbook, a named owner, or a link to the system where the fix happens. A dashboard that surfaces a problem and stops there has done half its job.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 34,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R7",
+    "text": "Separate monitoring from diagnosis. \"Is something wrong?\" and \"Why is it wrong?\" are different tasks that call for different designs. Answer the first on the top layer and put the second one step away, rather than cramming both onto one screen.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 36,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R8",
+    "text": "Give every element an owner and a reason, and write down what the dashboard is not for. Metric requests without an owner or a question go to a backlog, not onto the screen. An explicit out-of-scope list is the cheapest defense against the \"while we're at it\" accretion that kills most dashboards.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 38,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R9",
+    "text": "Define every metric in writing. Each metric needs a name, formula, numerator and denominator, filters, grain, source system, owner, refresh cadence, and known caveats. The definition should be reachable from the dashboard in one click, through an info icon, a tooltip link, or a glossary.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 44,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R10",
+    "text": "One name, one definition, one number. A metric appears under the same name, with the same definition and the same value, everywhere in the dashboard suite. Two tiles showing \"active users\" with different numbers destroy trust in every tile, not just those two.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 46,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R11",
+    "text": "Distinguish KPIs from diagnostic metrics. Headline KPIs are few and tied to objectives. Diagnostic metrics explain why the KPIs moved. If everything is a KPI, nothing is.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 48,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R12",
+    "text": "Pair leading and lagging indicators. Lagging indicators (revenue, churn) report what already happened. Leading indicators (pipeline, activation, support backlog) warn about what is coming. A dashboard of only lagging indicators is a rearview mirror.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 50,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R13",
+    "text": "Guard every targeted metric with a counter-metric. When a measure becomes a target, it gets optimized at the expense of whatever is not measured (Goodhart's law). Pair speed with quality, volume with error rate, and cost with satisfaction.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 52,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R14",
+    "text": "Normalize when comparing units of different size. Raw counts across regions, teams, or products mostly measure size. Compare rates: per capita, per user, per transaction, per dollar. Show the raw count alongside when absolute scale matters to the decision.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 54,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R15",
+    "text": "Reject vanity metrics. Cumulative totals that can only rise, such as all-time sign-ups, hide current performance and always look good. Prefer period rates and cohort measures.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 56,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R16",
+    "text": "Prefer distributions to averages when variance matters. A mean hides skew, bimodality, and outliers. Anscombe's quartet and the Datasaurus Dozen show datasets with identical summary statistics and wildly different shapes. Show the median with spread, or show the distribution itself.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 58,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R17",
+    "text": "Provide segment breakdowns where aggregation can mislead. Under Simpson's paradox, a trend in the aggregate can reverse within every subgroup when the mix of groups shifts. When mix matters, show the mix.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 60,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R18",
+    "text": "Know which metrics are additive. Distinct counts, ratios, percentiles, and averages do not sum across segments or periods. Totals for these must be recomputed from the underlying data, never summed from the rows above.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 62,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R19",
+    "text": "Show freshness. Display an \"as of\" timestamp for the time the data reflects, not merely when the page loaded. When the two differ meaningfully, show both.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 68,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R20",
+    "text": "Flag staleness loudly. When a refresh fails or data is older than its expected cadence, the dashboard must say so prominently. A stale dashboard that looks fresh is more dangerous than a broken one that looks broken.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 70,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R21",
+    "text": "Mark incomplete periods. The current day, week, or month is partial, and a partial final bar or point reads as a collapse. Exclude it, project it with distinct styling, or label it visibly as partial.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 72,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R22",
+    "text": "Show missing data as missing. Null is not zero. Break lines at gaps, mark empty cells explicitly, and never interpolate silently.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 74,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R23",
+    "text": "Show uncertainty where it exists. Survey estimates, samples, model outputs, and forecasts carry uncertainty. Show it with intervals, bands, or ranges, because a point estimate alone reads as fact.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 76,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R24",
+    "text": "Flag small samples. Small groups produce extreme rates that look like signals. Suppress or flag values below a minimum n, and consider funnel plots when comparing rates across units of very different size.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 78,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R25",
+    "text": "Make actuals, estimates, forecasts, and targets look different. Use a consistent visual grammar, such as solid lines for actuals, dashed lines for forecasts, lighter tones for estimates, and reference marks for targets, and name each one in the labels.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 80,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R26",
+    "text": "State units, currencies, time zones, and calendar conventions. Include fiscal versus calendar year and the first day of the week. Silent assumptions here produce errors that look like real changes.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 82,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R27",
+    "text": "Handle outliers openly. Do not drop them silently, and say so when they are excluded or capped. Do not let one extreme value flatten the scale for everything else; annotate it, break it out into its own view, or use a labeled log scale.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 84,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R28",
+    "text": "Mark definitional breaks. When a metric's definition, source, or tracking method changes, annotate the discontinuity on every time series it affects. Otherwise a change in measurement reads as a change in the world.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 86,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R29",
+    "text": "Reconcile with the system of record. Before launch, and on a schedule after it, check dashboard figures against source systems and document any explained differences.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 88,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R30",
+    "text": "Protect privacy. Minimize personal data, enforce row-level access controls, and suppress small cells. Fine-grained filters can re-identify individuals from aggregates that look anonymous.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 90,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R31",
+    "text": "No naked numbers. Every headline number gets at least one comparison: target, prior period, same period last year, forecast, benchmark, or peer group. Tufte's question, \"compared to what?\", applies to every tile.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 96,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R32",
+    "text": "State the comparison explicitly. \"+12%\" means nothing until it says \"vs. same week last year.\"",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 98,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R33",
+    "text": "Choose comparisons that respect seasonality. For cyclical data, compare year over year, or like weekday to like weekday. Week-over-week comparisons across holidays manufacture alarms.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 100,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R34",
+    "text": "Distinguish percent change from percentage-point change. A conversion rate moving from 2% to 3% is a gain of 1 percentage point and also a 50% increase. Label which one you mean.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 102,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R35",
+    "text": "Show absolute values alongside relative change for small bases. A 300% increase from 1 to 4 is not news.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 104,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R36",
+    "text": "Show the trend, not just the latest value. One number cannot distinguish a blip from a shift. Add a sparkline or a short trend line to every headline KPI.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 106,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R37",
+    "text": "Make targets visible as marks. Show targets as reference lines, bands, or bullet-graph markers on the chart itself, not only as text beside it.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 108,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R38",
+    "text": "Encode \"good\" per metric, not per direction. Up is good for revenue and bad for churn, cost, and latency. Color a change by whether it is favorable, not by its sign, and apply the convention consistently.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 110,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R39",
+    "text": "Show the size of the gap. \"Below target\" should always say how far below, in units and in percent.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 112,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R40",
+    "text": "Overview first, zoom and filter, details on demand. Shneiderman's mantra (1996) is the backbone of dashboard architecture. Build in layers: summary, then diagnostics, then record-level detail.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 118,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R41",
+    "text": "Put the most important information where eyes land first. In left-to-right reading cultures that is the top left; in right-to-left cultures, the top right. Headline KPIs go at the top and supporting detail below.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 120,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R42",
+    "text": "Make the first screen answer the first question. For monitoring dashboards, the whole dashboard should fit on one screen without scrolling. Analytical and narrative dashboards may scroll, but whatever is visible on load must answer the top-ranked question from R3.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 122,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R43",
+    "text": "Order panels in the user's reasoning sequence. Follow funnel order, process order, cause before effect, and summary before detail. An arbitrary order forces users to rebuild the logic themselves.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 124,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R44",
+    "text": "Group by meaning, using proximity and alignment rather than boxes. The Gestalt principles of proximity and similarity do the grouping work. Whitespace separates groups more quietly than borders, card backgrounds, and shadows, which add visual noise to every panel.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 126,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R45",
+    "text": "Use a grid. Align chart edges, axes, and baselines. Misalignment reads as noise and makes cross-panel comparison harder.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 128,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R46",
+    "text": "Let size signal importance. The headline metric is the largest element. Sizing every tile equally flattens a hierarchy that really exists.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 130,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R47",
+    "text": "Keep the number of views small enough to scan. There is no magic number (see Part 17), but every added tile raises the search cost of all the others. Each one must justify its place against R3.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 132,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R48",
+    "text": "Keep positions stable across the suite. Filters, date pickers, navigation, and recurring metrics sit in the same place on every dashboard. Users learn locations, not labels.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 134,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R49",
+    "text": "Keep layout stable under changing data. Panels should not jump, resize, or reorder when filters change or values update. Reflow destroys the spatial memory that makes repeated use fast.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 136,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R50",
+    "text": "Use a restrained type hierarchy. Use one typeface family, two or three sizes, and weight for emphasis. More levels than that make the hierarchy harder to read, not easier.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 138,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R51",
+    "text": "Choose the chart by task. Start from what the user must do with the data, then pick the encoding.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 144,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R52",
+    "text": "Put the most important comparison on position along a common scale. Cleveland and McGill (1984), replicated by Heer and Bostock (2010), ranked encodings by how accurately people read them: position on a common scale first, then position on non-aligned scales, length, angle and slope, area, and finally volume and color. Use area and color for rough impressions, not for comparisons that drive decisions.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 160,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R53",
+    "text": "Use bars for categorical magnitudes and lines for continuous change. A line implies continuity, so do not connect points across unordered categories.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 162,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R54",
+    "text": "Sort bars by value. The exceptions are categories with inherent order (time, ordinal scales, process stages) and a fixed order kept across many views to aid lookup.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 164,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R55",
+    "text": "Use horizontal bars for long labels or many categories. Never rotate text to make labels fit.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 166,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R56",
+    "text": "Use bullet graphs instead of gauges. Gauges, dials, and speedometers spend a lot of space on one value, encode it by angle, and show little context. A bullet graph (Few) shows the value, the target, and qualitative ranges in a compact strip, and several fit where one gauge did.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 168,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R57",
+    "text": "Use pie charts sparingly. Reserve them for part-to-whole with two or three parts, where the message is \"about half\" or \"most\" and precise comparison does not matter. Never use 3D or exploded pies, and never ask readers to compare two pies.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 170,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R58",
+    "text": "Avoid dual-axis charts. With two independent y-scales, the designer's choice of ranges determines whether the series appear to correlate, cross, or diverge. Use vertically stacked panels that share an x-axis, or index both series to a common base such as 100.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 172,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R59",
+    "text": "Use small multiples instead of overloaded charts. More than four or five lines in one chart becomes spaghetti. Split it into a grid of identical charts with shared scales, or highlight the series of interest against gray context.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 174,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R60",
+    "text": "Know the limits of stacked charts. Only the bottom segment and the total sit on a common baseline, so the middle segments cannot be compared accurately. Put the most important series at the bottom, or unstack.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 176,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R61",
+    "text": "Show distributions for variable data. Bar charts of means hide sample size, spread, and shape. Use histograms, box plots, strip or beeswarm plots, or violins.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 178,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R62",
+    "text": "Use maps only when geography is the question. If location does not matter to the decision, a sorted bar chart compares regions better. On choropleths, map rates rather than counts, and remember that large, sparsely populated areas dominate visually; equal-area tile or hex maps correct for this.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 180,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R63",
+    "text": "Use tables without apology. When users need exact values or lookups, a well-formatted table beats a chart. Highlight tables, with cells shaded by value, add pattern detection without sacrificing precision.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 182,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R64",
+    "text": "Use big-number tiles only with context. A large single number still needs a comparison, a trend, and a unit (R31, R36).",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 184,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R65",
+    "text": "Never use 3D for two-dimensional data. Perspective distorts length, area, and angle, and occlusion hides values.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 186,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R66",
+    "text": "Avoid chart types that encode nothing reliably. Word clouds confound frequency with word length. Radar charts change apparent area with arbitrary axis order. Funnel shapes with decorative widths imply quantities they do not encode, so draw funnels as bar charts.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 188,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R67",
+    "text": "Add trend lines with restraint. A fitted line asserts a model. Show one only when the relationship is the point, state the method, and never imply causation.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 190,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R68",
+    "text": "Bars start at zero. Bar length encodes value, so a truncated axis misstates every ratio on the chart. There is no exception for bars.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 196,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R69",
+    "text": "Choose line-chart baselines deliberately. A line chart may use a non-zero baseline when zero would flatten meaningful variation, but the range must be chosen on purpose and labeled. Correll, Bertini, and Franconeri (2020) found that truncation inflates perceived effect size even when readers are warned, so treat it as a tradeoff, not a free choice.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 198,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R70",
+    "text": "Do not break axes. If one value dwarfs the rest, annotate it, cap it with a label, or split it into a separate view.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 200,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R71",
+    "text": "Use log scales knowingly. Log scales suit data spanning orders of magnitude and questions about growth rates, but label them visibly. General audiences misread them; Romano et al. (2020) found that log-scale COVID-19 charts reduced understanding and shifted policy preferences. Default to linear for non-expert audiences, or offer a toggle.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 202,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R72",
+    "text": "Share scales across small multiples and across tiles that show the same metric. When panels use independent scales to compare shape, say so explicitly, because unshared scales make small values look large.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 204,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R73",
+    "text": "Space time proportionally. Equal distances represent equal intervals. Irregular observation dates should not sit at equal spacing.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 206,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R74",
+    "text": "Use human-friendly ticks and one abbreviation convention. Use round intervals (0, 25, 50) and a single convention for large numbers (K, M, B), applied everywhere.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 208,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R75",
+    "text": "Choose aspect ratio deliberately. Slopes communicate rate. Very wide charts flatten change and tall, narrow ones exaggerate it. Cleveland's banking toward 45 degrees is a reasonable starting point for line charts where slope matters.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 210,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R76",
+    "text": "Keep axis direction conventional. Up means more and right means later. Reverse an axis only for strong conventions, such as rank 1 at the top, and label it.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 212,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R77",
+    "text": "Make color mean something. Default marks to a neutral gray and spend color on what needs attention. If removing a color loses no information, remove it.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 218,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R78",
+    "text": "Match palette type to data type. Use sequential palettes for ordered magnitudes, diverging palettes for data with a meaningful midpoint, and categorical palettes for nominal groups.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 220,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R79",
+    "text": "Never use rainbow or jet palettes for quantitative data. They are perceptually non-uniform, creating false boundaries and hiding real ones (Borland and Taylor, 2007; Crameri et al., 2020). Use perceptually uniform maps such as viridis or cividis, or ColorBrewer schemes.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 222,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R80",
+    "text": "Choose the diverging midpoint on purpose. Zero, the target, an average, or last year's value can all serve, but say which one it is.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 224,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R81",
+    "text": "Limit categorical hues. Six to eight distinguishable hues is a practical ceiling, and fewer is better. Beyond that, group the remainder into \"other,\" highlight the few that matter, or label directly.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 226,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R82",
+    "text": "Use one color mapping everywhere. A category keeps its color across every chart in the dashboard and the suite, and a color never means two things. \"North region\" in blue on one panel and \"churned\" in blue on another is a defect.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 228,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R83",
+    "text": "Reserve status colors for status. Red, amber, and green signal alert states, so do not spend them on categories. Do not color an increase red when the increase is good.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 230,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R84",
+    "text": "Never rely on color alone. WCAG 2.2 Success Criterion 1.4.1 requires another cue. Roughly 1 in 12 men and 1 in 200 women have a color vision deficiency, most often red–green. Pair color with icons, shape, position, text, or pattern, and prefer blue–orange to red–green for binary good/bad encodings.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 232,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R85",
+    "text": "Meet contrast minimums. Text needs 4.5:1 (3:1 for large text), and graphical elements needed to understand the chart need 3:1 against adjacent colors (WCAG 2.2 SC 1.4.3 and 1.4.11).",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 234,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R86",
+    "text": "Do not encode quantity with hue. Hue has no inherent order. Use lightness and saturation for magnitude.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 236,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R87",
+    "text": "Use saturation as a volume knob. The most saturated, highest-contrast mark on the screen should be the most important one.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 238,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R88",
+    "text": "Test in grayscale and with color-vision-deficiency simulation before shipping.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 240,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R89",
+    "text": "Design light and dark themes separately. Inverting a palette breaks the lightness ordering of sequential scales and changes what stands out. Tune both themes.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 242,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R90",
+    "text": "Check the audience's color conventions. Color meaning varies by culture and domain. In several East Asian markets, including mainland China, Taiwan, and South Korea, red conventionally signals a rising price.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 244,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R91",
+    "text": "Give every chart a title, labeled axes, and units. Omit axis labels only when they are truly self-evident.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 250,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R92",
+    "text": "Label directly. Put series names at the ends of lines and values on or beside bars. A legend forces back-and-forth eye travel, so use one only when direct labels would collide.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 252,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R93",
+    "text": "Write titles that fit the dashboard type. On communicative dashboards, state the takeaway (\"West fell 18% below target\"). On monitoring dashboards, use neutral descriptive titles (\"Revenue vs. target by region\"), because a hardcoded finding becomes false at the next refresh. Titles generated from live data must be tested against edge cases.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 254,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R94",
+    "text": "Format numbers for reading. Use thousands separators, consistent decimals within a column, right-aligned numbers in tables, and tabular (fixed-width) figures so digits line up.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 256,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R95",
+    "text": "Match precision to meaning. Round to the precision the data supports and the decision needs: \"$4.2M,\" not \"$4,213,887.42\"; \"37.4%,\" not \"37.4129%.\" False precision implies false certainty.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 258,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R96",
+    "text": "Write dates unambiguously and respect locale. \"03/04/2026\" means March 4 in the United States and April 3 in most of the world. Use ISO 8601 (2026-03-04) or spelled months (4 Mar 2026), and follow the audience's decimal and thousands separators.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 260,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R97",
+    "text": "Keep text horizontal. If labels do not fit, change the chart (horizontal bars), abbreviate with a glossary, or wrap. Do not rotate.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 262,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R98",
+    "text": "Annotate events. Outages, launches, policy changes, holidays, and data breaks deserve a short note at the point where they occur. One annotation prevents a dozen misreadings.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 264,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R99",
+    "text": "Use the audience's language. Define internal jargon and abbreviations, or eliminate them.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 266,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R100",
+    "text": "Remove non-data ink that does not aid reading. Heavy gridlines, borders, background fills, drop shadows, gradients, and chart frames compete with the data. Lighten whatever remains, such as gridlines in pale gray.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 272,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R101",
+    "text": "Do not strip to the bone. Light gridlines, reference lines, and labels help people read values. The goal is the minimum ink needed for accurate reading, not the minimum ink possible (see Part 17 on the chartjunk research).",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 274,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R102",
+    "text": "Keep data marks plain, and brand once. No gradients, textures, shadows, glossy effects, or icons replacing bars. Branding belongs in the header, not on every tile.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 276,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R103",
+    "text": "Animate only to preserve continuity. Transitions that keep track of objects through filter and sort changes help comprehension (Heer and Robertson, 2007). Decorative animation, auto-rotating carousels, and pulsing elements steal attention and hide information. Respect the user's reduced-motion setting.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 278,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R104",
+    "text": "Make the default view answer the primary question with no interaction. Many users never touch a filter. Information that requires a click to find is information many people will not see.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 284,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R105",
+    "text": "Make every control earn its place. Each filter, toggle, and drill-down must serve a question on the R3 list. Controls added \"just in case\" multiply the states to test and the ways to misread.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 286,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R106",
+    "text": "Show filter state at all times, and offer a reset. Active filters must be visible near the content they affect, so screenshots and exports are not misleading. One click should return to the default view.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 288,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R107",
+    "text": "Make filter scope obvious. Users must be able to tell which panels a filter affects. Inconsistent filter scope is one of the most common sources of misreading.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 290,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R108",
+    "text": "Use tooltips for details, not essentials. Hover is invisible on touch screens, to many screen-reader users, in screenshots, and in print. Anything needed to read the chart correctly belongs on the chart.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 292,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R109",
+    "text": "Link views in analytical dashboards. Selecting marks in one view should highlight or filter the others (brushing and linking), so users can explore relationships without leaving the screen.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 294,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R110",
+    "text": "Keep drill-down paths consistent and reversible. The same gesture means the same thing everywhere, breadcrumbs show where the user is, and \"back\" always works.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 296,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R111",
+    "text": "Make state shareable. Encode filters and selections in the URL so a link reproduces exactly what someone saw.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 298,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R112",
+    "text": "Treat latency as a design constraint. Liu and Heer (2014) found that an added half-second of delay reduced how much users explored and what they noticed. Budget for near-instant responses to direct manipulation and a fast initial load, pre-aggregate where needed, and show a loading state rather than freezing.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 300,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R113",
+    "text": "Export with context. Image and data exports should carry the filters, date range, as-of timestamp, and metric definitions. An orphaned CSV or PNG travels without its caveats.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 302,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R114",
+    "text": "Make everything keyboard-operable with a visible, logical focus order.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 304,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R115",
+    "text": "Set thresholds from variation, not round numbers. Use the metric's own historical variation to separate signal from noise, as process behavior (control) charts do (Wheeler). Arbitrary thresholds like \"±10%\" flag noise and miss real shifts.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 310,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R116",
+    "text": "Design for exceptions. On operational dashboards, the abnormal should stand out and the normal should recede.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 312,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R117",
+    "text": "Ration alarm states. If everything is red, nothing is, and alert fatigue trains people to ignore the dashboard. When a large share of indicators sits in alarm routinely, revisit the thresholds.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 314,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R118",
+    "text": "Never let status replace the value. A red dot without the number, the target, and the trend conveys urgency without information. Every alert should also lead to its owner and next step (R6).",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 316,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R119",
+    "text": "Treat WCAG 2.2 AA as the floor, not the goal.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 322,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R120",
+    "text": "Provide text equivalents. Give each chart a short text summary of its main takeaway, and make the underlying data available as an accessible table.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 324,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R121",
+    "text": "Make charts navigable with assistive technology. Give chart elements meaningful labels and roles, or link a data table, and test with an actual screen reader rather than assuming.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 326,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R122",
+    "text": "Support zoom and reflow. Text should resize to 200% without loss of content (SC 1.4.4), and the page should reflow at narrow widths (SC 1.4.10). Charts and data tables may keep their two-dimensional layout under the reflow criterion, but their text should still scale.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 328,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R123",
+    "text": "Size touch targets generously. WCAG 2.2 SC 2.5.8 sets a 24 by 24 CSS pixel minimum. Mobile-first dashboards should go larger; Apple's guidelines recommend about 44 points.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 330,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R124",
+    "text": "Design for the primary device, then re-prioritize for others rather than shrinking. On mobile, stack the KPIs, give each chart the full width, show fewer series, enlarge touch targets, and move anything essential out of hover.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 336,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R125",
+    "text": "Design wall displays for distance and no interaction. Use large type and high contrast, avoid any content that depends on interaction, refresh automatically, and keep the as-of timestamp and stale-data warnings visible.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 338,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R126",
+    "text": "Test on the real hardware. Projectors wash out color and low-contrast elements, and conference-room screens are often lower resolution than the designer's monitor.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 340,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R127",
+    "text": "Make print and PDF output stand alone. It should be legible in grayscale, print the active filter state, and avoid page breaks that split charts.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 342,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R128",
+    "text": "Design the empty, loading, error, and partial states. \"No data for this selection,\" a failed query, and a slow load each need a designed state. A blank panel or a zero is a misreading waiting to happen.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 344,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R129",
+    "text": "Do not cherry-pick time windows. Default ranges should be long enough to show context, including at least the last comparable cycle. Short windows make noise look like a trend.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 350,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R130",
+    "text": "Avoid causal language and causal design for correlational data. Arrows between metrics, or titles like \"X drives Y,\" assert causation the data may not support.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 352,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R131",
+    "text": "Disclose methodology and keep an audit trail. Link a \"how this is calculated\" note at the metric level (R9), and make it possible to trace any number back to its query and source.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 354,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R132",
+    "text": "Consider the incentive effects of what you display. Individual leaderboards and per-person rankings change behavior, sometimes destructively. Show data at the level of accountability that is fair and actionable.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 356,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R133",
+    "text": "Treat AI-generated narratives as claims that need provenance. If the dashboard includes LLM-written summaries or \"insights,\" label them as generated, constrain them to computed values, link each stated number to the displayed data, and test them for invented or inverted claims. A fluent, wrong sentence above a correct chart will win the reader.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 358,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R134",
+    "text": "Give bad news the same prominence as good. Dashboards curated by the team being measured drift toward burying unflattering metrics below the fold or behind a tab. Placement should follow importance, not comfort.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 360,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R135",
+    "text": "Prototype with real data early. Mock data is clean, evenly distributed, and short-labeled. Real data has nulls, long names, heavy skew, and one category holding 90% of the volume. Sketch on paper first, then move to real data immediately.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 366,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R136",
+    "text": "Stress-test with worst-case data. Try the longest label, zero, negative values, a single category, hundreds of categories, a missing period, an extreme outlier, and a filter combination that returns nothing.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 368,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R137",
+    "text": "Test with target users against the question list. Give users the R3 questions, then measure time to answer and accuracy, and watch where they look and what they misread. For glanceable dashboards, a few-second exposure followed by \"what's the state of things?\" checks whether the hierarchy works.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 370,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R138",
+    "text": "Instrument usage. Track which views, filters, and tiles are used, and prune what is not.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 372,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R139",
+    "text": "Retire dashboards. Set a review date at launch and archive dashboards nobody opens. Dashboard sprawl splinters definitions and undermines R10.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 374,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R140",
+    "text": "Version definitions and design. Keep a changelog visible to users, and announce metric changes before they land (R28).",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 376,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R141",
+    "text": "Name an owner for the dashboard as a whole. Show the owner on the dashboard alongside a feedback channel, in addition to the owners of individual metrics.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 378,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  },
+  {
+    "id": "R142",
+    "text": "Plan to iterate. The first version of a dashboard is a hypothesis about what users need. Schedule revision after observing real use.",
+    "source": "references/sources/dashboard-rules-comprehensive.txt",
+    "line": 380,
+    "classification": "user-supplied guidance; apply context and resolutions"
+  }
+]

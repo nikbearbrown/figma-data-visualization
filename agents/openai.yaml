@@ -1,0 +1,4 @@
+interface:
+  display_name: "Figma Data Visualization"
+  short_description: "Design trustworthy, editable Figma dashboards"
+  default_prompt: "Use $figma-data-visualization to design a Figma dashboard from my questions and data, citing the rulebook and reporting untested requirements."

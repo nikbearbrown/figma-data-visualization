@@ -1,0 +1,477 @@
+# Rules for Dashboard Design
+
+A comprehensive rule set for information and data visualization dashboards.
+
+## How to use this document
+
+The rules are numbered continuously (R1–R142) so they can be cited in reviews, critiques, and rubrics. They are defaults, not laws, and their grounding varies. Some rest on perception research (Cleveland and McGill's encoding hierarchy, color science), some on accessibility standards (WCAG 2.2), and some on professional convention. Perceptual and accessibility rules should be broken rarely. Conventions can be broken whenever you can state the reason. Part 17 examines rules that circulate widely but are weaker than their reputation.
+
+Stephen Few's classic definition treats a dashboard as the most important information for a set of objectives, arranged on a single screen so it can be monitored at a glance. In practice the word covers much more. Sarikaya et al. (2019) surveyed dashboards in the wild and found everything from real-time operational monitors to interactive analytical workbenches to static, infographic-style summaries. Many arguments about dashboard "rules" are really arguments about which kind of dashboard is under discussion, so the first step is knowing which one you are building.
+
+| Type | Core question | Refresh | Interaction | Density |
+|---|---|---|---|---|
+| Operational / monitoring | Is anything wrong right now? | Real-time to hourly | Minimal | Moderate, exception-focused |
+| Strategic / executive | Are we on track? | Daily to monthly | Low | Low: few KPIs, rich context |
+| Analytical / exploratory | Why did this happen, and what drives it? | Daily or on demand | High | High, with linked views |
+| Communicative / narrative | What should this audience understand? | Static or periodic | Low to moderate | Moderate, annotated |
+
+Rules that apply only to some types say so.
+
+---
+
+## Part 1 — Purpose before pixels
+
+**R1. Name the decision.** Write down the decisions or actions the dashboard is meant to inform. If you cannot name one, you are building a report, an archive, or a status ornament. Those can be legitimate, but they follow different rules and should not be called dashboards.
+
+**R2. Name one primary audience.** A dashboard that tries to serve executives, analysts, and frontline operators at once serves none of them well. Different audiences need different layers or different dashboards.
+
+**R3. Write the questions, ranked.** List the questions the audience brings, in priority order. Every element must trace to a question on the list, and anything that cannot is cut. This list is both the specification and the test plan (R137).
+
+**R4. Classify the dashboard type and let it set the parameters.** Type determines refresh rate, information density, how much interaction is appropriate, and whether scrolling is acceptable. Decide it before layout.
+
+**R5. Specify the context of use.** Record the device, display size, viewing distance, time available (a five-second glance or a two-hour session), frequency of use, and environment (a projector in a meeting, a wall monitor, a phone between meetings). Each one changes the design.
+
+**R6. Define the action path.** For every metric that can go wrong, the dashboard should show what happens next: a drill-down, a runbook, a named owner, or a link to the system where the fix happens. A dashboard that surfaces a problem and stops there has done half its job.
+
+**R7. Separate monitoring from diagnosis.** "Is something wrong?" and "Why is it wrong?" are different tasks that call for different designs. Answer the first on the top layer and put the second one step away, rather than cramming both onto one screen.
+
+**R8. Give every element an owner and a reason, and write down what the dashboard is not for.** Metric requests without an owner or a question go to a backlog, not onto the screen. An explicit out-of-scope list is the cheapest defense against the "while we're at it" accretion that kills most dashboards.
+
+---
+
+## Part 2 — Metrics and definitions
+
+**R9. Define every metric in writing.** Each metric needs a name, formula, numerator and denominator, filters, grain, source system, owner, refresh cadence, and known caveats. The definition should be reachable from the dashboard in one click, through an info icon, a tooltip link, or a glossary.
+
+**R10. One name, one definition, one number.** A metric appears under the same name, with the same definition and the same value, everywhere in the dashboard suite. Two tiles showing "active users" with different numbers destroy trust in every tile, not just those two.
+
+**R11. Distinguish KPIs from diagnostic metrics.** Headline KPIs are few and tied to objectives. Diagnostic metrics explain why the KPIs moved. If everything is a KPI, nothing is.
+
+**R12. Pair leading and lagging indicators.** Lagging indicators (revenue, churn) report what already happened. Leading indicators (pipeline, activation, support backlog) warn about what is coming. A dashboard of only lagging indicators is a rearview mirror.
+
+**R13. Guard every targeted metric with a counter-metric.** When a measure becomes a target, it gets optimized at the expense of whatever is not measured (Goodhart's law). Pair speed with quality, volume with error rate, and cost with satisfaction.
+
+**R14. Normalize when comparing units of different size.** Raw counts across regions, teams, or products mostly measure size. Compare rates: per capita, per user, per transaction, per dollar. Show the raw count alongside when absolute scale matters to the decision.
+
+**R15. Reject vanity metrics.** Cumulative totals that can only rise, such as all-time sign-ups, hide current performance and always look good. Prefer period rates and cohort measures.
+
+**R16. Prefer distributions to averages when variance matters.** A mean hides skew, bimodality, and outliers. Anscombe's quartet and the Datasaurus Dozen show datasets with identical summary statistics and wildly different shapes. Show the median with spread, or show the distribution itself.
+
+**R17. Provide segment breakdowns where aggregation can mislead.** Under Simpson's paradox, a trend in the aggregate can reverse within every subgroup when the mix of groups shifts. When mix matters, show the mix.
+
+**R18. Know which metrics are additive.** Distinct counts, ratios, percentiles, and averages do not sum across segments or periods. Totals for these must be recomputed from the underlying data, never summed from the rows above.
+
+---
+
+## Part 3 — Data integrity and provenance
+
+**R19. Show freshness.** Display an "as of" timestamp for the time the data reflects, not merely when the page loaded. When the two differ meaningfully, show both.
+
+**R20. Flag staleness loudly.** When a refresh fails or data is older than its expected cadence, the dashboard must say so prominently. A stale dashboard that looks fresh is more dangerous than a broken one that looks broken.
+
+**R21. Mark incomplete periods.** The current day, week, or month is partial, and a partial final bar or point reads as a collapse. Exclude it, project it with distinct styling, or label it visibly as partial.
+
+**R22. Show missing data as missing.** Null is not zero. Break lines at gaps, mark empty cells explicitly, and never interpolate silently.
+
+**R23. Show uncertainty where it exists.** Survey estimates, samples, model outputs, and forecasts carry uncertainty. Show it with intervals, bands, or ranges, because a point estimate alone reads as fact.
+
+**R24. Flag small samples.** Small groups produce extreme rates that look like signals. Suppress or flag values below a minimum n, and consider funnel plots when comparing rates across units of very different size.
+
+**R25. Make actuals, estimates, forecasts, and targets look different.** Use a consistent visual grammar, such as solid lines for actuals, dashed lines for forecasts, lighter tones for estimates, and reference marks for targets, and name each one in the labels.
+
+**R26. State units, currencies, time zones, and calendar conventions.** Include fiscal versus calendar year and the first day of the week. Silent assumptions here produce errors that look like real changes.
+
+**R27. Handle outliers openly.** Do not drop them silently, and say so when they are excluded or capped. Do not let one extreme value flatten the scale for everything else; annotate it, break it out into its own view, or use a labeled log scale.
+
+**R28. Mark definitional breaks.** When a metric's definition, source, or tracking method changes, annotate the discontinuity on every time series it affects. Otherwise a change in measurement reads as a change in the world.
+
+**R29. Reconcile with the system of record.** Before launch, and on a schedule after it, check dashboard figures against source systems and document any explained differences.
+
+**R30. Protect privacy.** Minimize personal data, enforce row-level access controls, and suppress small cells. Fine-grained filters can re-identify individuals from aggregates that look anonymous.
+
+---
+
+## Part 4 — Context and comparison
+
+**R31. No naked numbers.** Every headline number gets at least one comparison: target, prior period, same period last year, forecast, benchmark, or peer group. Tufte's question, "compared to what?", applies to every tile.
+
+**R32. State the comparison explicitly.** "+12%" means nothing until it says "vs. same week last year."
+
+**R33. Choose comparisons that respect seasonality.** For cyclical data, compare year over year, or like weekday to like weekday. Week-over-week comparisons across holidays manufacture alarms.
+
+**R34. Distinguish percent change from percentage-point change.** A conversion rate moving from 2% to 3% is a gain of 1 percentage point and also a 50% increase. Label which one you mean.
+
+**R35. Show absolute values alongside relative change for small bases.** A 300% increase from 1 to 4 is not news.
+
+**R36. Show the trend, not just the latest value.** One number cannot distinguish a blip from a shift. Add a sparkline or a short trend line to every headline KPI.
+
+**R37. Make targets visible as marks.** Show targets as reference lines, bands, or bullet-graph markers on the chart itself, not only as text beside it.
+
+**R38. Encode "good" per metric, not per direction.** Up is good for revenue and bad for churn, cost, and latency. Color a change by whether it is favorable, not by its sign, and apply the convention consistently.
+
+**R39. Show the size of the gap.** "Below target" should always say how far below, in units and in percent.
+
+---
+
+## Part 5 — Layout and information architecture
+
+**R40. Overview first, zoom and filter, details on demand.** Shneiderman's mantra (1996) is the backbone of dashboard architecture. Build in layers: summary, then diagnostics, then record-level detail.
+
+**R41. Put the most important information where eyes land first.** In left-to-right reading cultures that is the top left; in right-to-left cultures, the top right. Headline KPIs go at the top and supporting detail below.
+
+**R42. Make the first screen answer the first question.** For monitoring dashboards, the whole dashboard should fit on one screen without scrolling. Analytical and narrative dashboards may scroll, but whatever is visible on load must answer the top-ranked question from R3.
+
+**R43. Order panels in the user's reasoning sequence.** Follow funnel order, process order, cause before effect, and summary before detail. An arbitrary order forces users to rebuild the logic themselves.
+
+**R44. Group by meaning, using proximity and alignment rather than boxes.** The Gestalt principles of proximity and similarity do the grouping work. Whitespace separates groups more quietly than borders, card backgrounds, and shadows, which add visual noise to every panel.
+
+**R45. Use a grid.** Align chart edges, axes, and baselines. Misalignment reads as noise and makes cross-panel comparison harder.
+
+**R46. Let size signal importance.** The headline metric is the largest element. Sizing every tile equally flattens a hierarchy that really exists.
+
+**R47. Keep the number of views small enough to scan.** There is no magic number (see Part 17), but every added tile raises the search cost of all the others. Each one must justify its place against R3.
+
+**R48. Keep positions stable across the suite.** Filters, date pickers, navigation, and recurring metrics sit in the same place on every dashboard. Users learn locations, not labels.
+
+**R49. Keep layout stable under changing data.** Panels should not jump, resize, or reorder when filters change or values update. Reflow destroys the spatial memory that makes repeated use fast.
+
+**R50. Use a restrained type hierarchy.** Use one typeface family, two or three sizes, and weight for emphasis. More levels than that make the hierarchy harder to read, not easier.
+
+---
+
+## Part 6 — Choosing the chart
+
+**R51. Choose the chart by task.** Start from what the user must do with the data, then pick the encoding.
+
+| Task | Strong choices | Use with care | Avoid |
+|---|---|---|---|
+| Compare magnitudes across categories | Sorted bar, dot plot | Lollipop | 3D bars, radar, bubbles |
+| Rank | Sorted bar, ordered table | Slope chart (for rank change) | Pie |
+| Change over time | Line, sparkline, columns for discrete periods | Area (single series) | Stacked area with many series, a pie per period |
+| Part-to-whole | Stacked bar, 100% bar, waffle | Pie (2–3 parts), treemap (many parts, hierarchy) | 3D pie, many-slice donut |
+| Distribution | Histogram, box plot, strip or beeswarm, violin | Density curve | Bar of means alone |
+| Relationship | Scatterplot | Connected scatter (expert audiences), bubble (third variable) | Dual-axis lines |
+| Deviation from a reference | Diverging bar, bullet graph | — | Gauge |
+| KPI vs. target | Bullet graph, big number with sparkline and comparison | Progress bar | Gauge, speedometer, thermometer |
+| Geography | Choropleth of rates, symbol map, tile or hex map | Flow map | Choropleth of raw counts |
+| Flow or process | Funnel drawn as bars, Sankey | Alluvial | Funnel shapes with decorative widths |
+| Precise lookup | Table, highlight table | — | Any chart where values must be read exactly |
+
+**R52. Put the most important comparison on position along a common scale.** Cleveland and McGill (1984), replicated by Heer and Bostock (2010), ranked encodings by how accurately people read them: position on a common scale first, then position on non-aligned scales, length, angle and slope, area, and finally volume and color. Use area and color for rough impressions, not for comparisons that drive decisions.
+
+**R53. Use bars for categorical magnitudes and lines for continuous change.** A line implies continuity, so do not connect points across unordered categories.
+
+**R54. Sort bars by value.** The exceptions are categories with inherent order (time, ordinal scales, process stages) and a fixed order kept across many views to aid lookup.
+
+**R55. Use horizontal bars for long labels or many categories.** Never rotate text to make labels fit.
+
+**R56. Use bullet graphs instead of gauges.** Gauges, dials, and speedometers spend a lot of space on one value, encode it by angle, and show little context. A bullet graph (Few) shows the value, the target, and qualitative ranges in a compact strip, and several fit where one gauge did.
+
+**R57. Use pie charts sparingly.** Reserve them for part-to-whole with two or three parts, where the message is "about half" or "most" and precise comparison does not matter. Never use 3D or exploded pies, and never ask readers to compare two pies.
+
+**R58. Avoid dual-axis charts.** With two independent y-scales, the designer's choice of ranges determines whether the series appear to correlate, cross, or diverge. Use vertically stacked panels that share an x-axis, or index both series to a common base such as 100.
+
+**R59. Use small multiples instead of overloaded charts.** More than four or five lines in one chart becomes spaghetti. Split it into a grid of identical charts with shared scales, or highlight the series of interest against gray context.
+
+**R60. Know the limits of stacked charts.** Only the bottom segment and the total sit on a common baseline, so the middle segments cannot be compared accurately. Put the most important series at the bottom, or unstack.
+
+**R61. Show distributions for variable data.** Bar charts of means hide sample size, spread, and shape. Use histograms, box plots, strip or beeswarm plots, or violins.
+
+**R62. Use maps only when geography is the question.** If location does not matter to the decision, a sorted bar chart compares regions better. On choropleths, map rates rather than counts, and remember that large, sparsely populated areas dominate visually; equal-area tile or hex maps correct for this.
+
+**R63. Use tables without apology.** When users need exact values or lookups, a well-formatted table beats a chart. Highlight tables, with cells shaded by value, add pattern detection without sacrificing precision.
+
+**R64. Use big-number tiles only with context.** A large single number still needs a comparison, a trend, and a unit (R31, R36).
+
+**R65. Never use 3D for two-dimensional data.** Perspective distorts length, area, and angle, and occlusion hides values.
+
+**R66. Avoid chart types that encode nothing reliably.** Word clouds confound frequency with word length. Radar charts change apparent area with arbitrary axis order. Funnel shapes with decorative widths imply quantities they do not encode, so draw funnels as bar charts.
+
+**R67. Add trend lines with restraint.** A fitted line asserts a model. Show one only when the relationship is the point, state the method, and never imply causation.
+
+---
+
+## Part 7 — Scales and axes
+
+**R68. Bars start at zero.** Bar length encodes value, so a truncated axis misstates every ratio on the chart. There is no exception for bars.
+
+**R69. Choose line-chart baselines deliberately.** A line chart may use a non-zero baseline when zero would flatten meaningful variation, but the range must be chosen on purpose and labeled. Correll, Bertini, and Franconeri (2020) found that truncation inflates perceived effect size even when readers are warned, so treat it as a tradeoff, not a free choice.
+
+**R70. Do not break axes.** If one value dwarfs the rest, annotate it, cap it with a label, or split it into a separate view.
+
+**R71. Use log scales knowingly.** Log scales suit data spanning orders of magnitude and questions about growth rates, but label them visibly. General audiences misread them; Romano et al. (2020) found that log-scale COVID-19 charts reduced understanding and shifted policy preferences. Default to linear for non-expert audiences, or offer a toggle.
+
+**R72. Share scales across small multiples and across tiles that show the same metric.** When panels use independent scales to compare shape, say so explicitly, because unshared scales make small values look large.
+
+**R73. Space time proportionally.** Equal distances represent equal intervals. Irregular observation dates should not sit at equal spacing.
+
+**R74. Use human-friendly ticks and one abbreviation convention.** Use round intervals (0, 25, 50) and a single convention for large numbers (K, M, B), applied everywhere.
+
+**R75. Choose aspect ratio deliberately.** Slopes communicate rate. Very wide charts flatten change and tall, narrow ones exaggerate it. Cleveland's banking toward 45 degrees is a reasonable starting point for line charts where slope matters.
+
+**R76. Keep axis direction conventional.** Up means more and right means later. Reverse an axis only for strong conventions, such as rank 1 at the top, and label it.
+
+---
+
+## Part 8 — Color
+
+**R77. Make color mean something.** Default marks to a neutral gray and spend color on what needs attention. If removing a color loses no information, remove it.
+
+**R78. Match palette type to data type.** Use sequential palettes for ordered magnitudes, diverging palettes for data with a meaningful midpoint, and categorical palettes for nominal groups.
+
+**R79. Never use rainbow or jet palettes for quantitative data.** They are perceptually non-uniform, creating false boundaries and hiding real ones (Borland and Taylor, 2007; Crameri et al., 2020). Use perceptually uniform maps such as viridis or cividis, or ColorBrewer schemes.
+
+**R80. Choose the diverging midpoint on purpose.** Zero, the target, an average, or last year's value can all serve, but say which one it is.
+
+**R81. Limit categorical hues.** Six to eight distinguishable hues is a practical ceiling, and fewer is better. Beyond that, group the remainder into "other," highlight the few that matter, or label directly.
+
+**R82. Use one color mapping everywhere.** A category keeps its color across every chart in the dashboard and the suite, and a color never means two things. "North region" in blue on one panel and "churned" in blue on another is a defect.
+
+**R83. Reserve status colors for status.** Red, amber, and green signal alert states, so do not spend them on categories. Do not color an increase red when the increase is good.
+
+**R84. Never rely on color alone.** WCAG 2.2 Success Criterion 1.4.1 requires another cue. Roughly 1 in 12 men and 1 in 200 women have a color vision deficiency, most often red–green. Pair color with icons, shape, position, text, or pattern, and prefer blue–orange to red–green for binary good/bad encodings.
+
+**R85. Meet contrast minimums.** Text needs 4.5:1 (3:1 for large text), and graphical elements needed to understand the chart need 3:1 against adjacent colors (WCAG 2.2 SC 1.4.3 and 1.4.11).
+
+**R86. Do not encode quantity with hue.** Hue has no inherent order. Use lightness and saturation for magnitude.
+
+**R87. Use saturation as a volume knob.** The most saturated, highest-contrast mark on the screen should be the most important one.
+
+**R88. Test in grayscale and with color-vision-deficiency simulation** before shipping.
+
+**R89. Design light and dark themes separately.** Inverting a palette breaks the lightness ordering of sequential scales and changes what stands out. Tune both themes.
+
+**R90. Check the audience's color conventions.** Color meaning varies by culture and domain. In several East Asian markets, including mainland China, Taiwan, and South Korea, red conventionally signals a rising price.
+
+---
+
+## Part 9 — Text, labels, and numbers
+
+**R91. Give every chart a title, labeled axes, and units.** Omit axis labels only when they are truly self-evident.
+
+**R92. Label directly.** Put series names at the ends of lines and values on or beside bars. A legend forces back-and-forth eye travel, so use one only when direct labels would collide.
+
+**R93. Write titles that fit the dashboard type.** On communicative dashboards, state the takeaway ("West fell 18% below target"). On monitoring dashboards, use neutral descriptive titles ("Revenue vs. target by region"), because a hardcoded finding becomes false at the next refresh. Titles generated from live data must be tested against edge cases.
+
+**R94. Format numbers for reading.** Use thousands separators, consistent decimals within a column, right-aligned numbers in tables, and tabular (fixed-width) figures so digits line up.
+
+**R95. Match precision to meaning.** Round to the precision the data supports and the decision needs: "$4.2M," not "$4,213,887.42"; "37.4%," not "37.4129%." False precision implies false certainty.
+
+**R96. Write dates unambiguously and respect locale.** "03/04/2026" means March 4 in the United States and April 3 in most of the world. Use ISO 8601 (2026-03-04) or spelled months (4 Mar 2026), and follow the audience's decimal and thousands separators.
+
+**R97. Keep text horizontal.** If labels do not fit, change the chart (horizontal bars), abbreviate with a glossary, or wrap. Do not rotate.
+
+**R98. Annotate events.** Outages, launches, policy changes, holidays, and data breaks deserve a short note at the point where they occur. One annotation prevents a dozen misreadings.
+
+**R99. Use the audience's language.** Define internal jargon and abbreviations, or eliminate them.
+
+---
+
+## Part 10 — Clutter, decoration, and motion
+
+**R100. Remove non-data ink that does not aid reading.** Heavy gridlines, borders, background fills, drop shadows, gradients, and chart frames compete with the data. Lighten whatever remains, such as gridlines in pale gray.
+
+**R101. Do not strip to the bone.** Light gridlines, reference lines, and labels help people read values. The goal is the minimum ink needed for accurate reading, not the minimum ink possible (see Part 17 on the chartjunk research).
+
+**R102. Keep data marks plain, and brand once.** No gradients, textures, shadows, glossy effects, or icons replacing bars. Branding belongs in the header, not on every tile.
+
+**R103. Animate only to preserve continuity.** Transitions that keep track of objects through filter and sort changes help comprehension (Heer and Robertson, 2007). Decorative animation, auto-rotating carousels, and pulsing elements steal attention and hide information. Respect the user's reduced-motion setting.
+
+---
+
+## Part 11 — Interaction
+
+**R104. Make the default view answer the primary question with no interaction.** Many users never touch a filter. Information that requires a click to find is information many people will not see.
+
+**R105. Make every control earn its place.** Each filter, toggle, and drill-down must serve a question on the R3 list. Controls added "just in case" multiply the states to test and the ways to misread.
+
+**R106. Show filter state at all times, and offer a reset.** Active filters must be visible near the content they affect, so screenshots and exports are not misleading. One click should return to the default view.
+
+**R107. Make filter scope obvious.** Users must be able to tell which panels a filter affects. Inconsistent filter scope is one of the most common sources of misreading.
+
+**R108. Use tooltips for details, not essentials.** Hover is invisible on touch screens, to many screen-reader users, in screenshots, and in print. Anything needed to read the chart correctly belongs on the chart.
+
+**R109. Link views in analytical dashboards.** Selecting marks in one view should highlight or filter the others (brushing and linking), so users can explore relationships without leaving the screen.
+
+**R110. Keep drill-down paths consistent and reversible.** The same gesture means the same thing everywhere, breadcrumbs show where the user is, and "back" always works.
+
+**R111. Make state shareable.** Encode filters and selections in the URL so a link reproduces exactly what someone saw.
+
+**R112. Treat latency as a design constraint.** Liu and Heer (2014) found that an added half-second of delay reduced how much users explored and what they noticed. Budget for near-instant responses to direct manipulation and a fast initial load, pre-aggregate where needed, and show a loading state rather than freezing.
+
+**R113. Export with context.** Image and data exports should carry the filters, date range, as-of timestamp, and metric definitions. An orphaned CSV or PNG travels without its caveats.
+
+**R114. Make everything keyboard-operable** with a visible, logical focus order.
+
+---
+
+## Part 12 — Status, thresholds, and alerts
+
+**R115. Set thresholds from variation, not round numbers.** Use the metric's own historical variation to separate signal from noise, as process behavior (control) charts do (Wheeler). Arbitrary thresholds like "±10%" flag noise and miss real shifts.
+
+**R116. Design for exceptions.** On operational dashboards, the abnormal should stand out and the normal should recede.
+
+**R117. Ration alarm states.** If everything is red, nothing is, and alert fatigue trains people to ignore the dashboard. When a large share of indicators sits in alarm routinely, revisit the thresholds.
+
+**R118. Never let status replace the value.** A red dot without the number, the target, and the trend conveys urgency without information. Every alert should also lead to its owner and next step (R6).
+
+---
+
+## Part 13 — Accessibility
+
+**R119. Treat WCAG 2.2 AA as the floor, not the goal.**
+
+**R120. Provide text equivalents.** Give each chart a short text summary of its main takeaway, and make the underlying data available as an accessible table.
+
+**R121. Make charts navigable with assistive technology.** Give chart elements meaningful labels and roles, or link a data table, and test with an actual screen reader rather than assuming.
+
+**R122. Support zoom and reflow.** Text should resize to 200% without loss of content (SC 1.4.4), and the page should reflow at narrow widths (SC 1.4.10). Charts and data tables may keep their two-dimensional layout under the reflow criterion, but their text should still scale.
+
+**R123. Size touch targets generously.** WCAG 2.2 SC 2.5.8 sets a 24 by 24 CSS pixel minimum. Mobile-first dashboards should go larger; Apple's guidelines recommend about 44 points.
+
+---
+
+## Part 14 — Medium and device
+
+**R124. Design for the primary device, then re-prioritize for others rather than shrinking.** On mobile, stack the KPIs, give each chart the full width, show fewer series, enlarge touch targets, and move anything essential out of hover.
+
+**R125. Design wall displays for distance and no interaction.** Use large type and high contrast, avoid any content that depends on interaction, refresh automatically, and keep the as-of timestamp and stale-data warnings visible.
+
+**R126. Test on the real hardware.** Projectors wash out color and low-contrast elements, and conference-room screens are often lower resolution than the designer's monitor.
+
+**R127. Make print and PDF output stand alone.** It should be legible in grayscale, print the active filter state, and avoid page breaks that split charts.
+
+**R128. Design the empty, loading, error, and partial states.** "No data for this selection," a failed query, and a slow load each need a designed state. A blank panel or a zero is a misreading waiting to happen.
+
+---
+
+## Part 15 — Trust, honesty, and ethics
+
+**R129. Do not cherry-pick time windows.** Default ranges should be long enough to show context, including at least the last comparable cycle. Short windows make noise look like a trend.
+
+**R130. Avoid causal language and causal design for correlational data.** Arrows between metrics, or titles like "X drives Y," assert causation the data may not support.
+
+**R131. Disclose methodology and keep an audit trail.** Link a "how this is calculated" note at the metric level (R9), and make it possible to trace any number back to its query and source.
+
+**R132. Consider the incentive effects of what you display.** Individual leaderboards and per-person rankings change behavior, sometimes destructively. Show data at the level of accountability that is fair and actionable.
+
+**R133. Treat AI-generated narratives as claims that need provenance.** If the dashboard includes LLM-written summaries or "insights," label them as generated, constrain them to computed values, link each stated number to the displayed data, and test them for invented or inverted claims. A fluent, wrong sentence above a correct chart will win the reader.
+
+**R134. Give bad news the same prominence as good.** Dashboards curated by the team being measured drift toward burying unflattering metrics below the fold or behind a tab. Placement should follow importance, not comfort.
+
+---
+
+## Part 16 — Process, testing, and governance
+
+**R135. Prototype with real data early.** Mock data is clean, evenly distributed, and short-labeled. Real data has nulls, long names, heavy skew, and one category holding 90% of the volume. Sketch on paper first, then move to real data immediately.
+
+**R136. Stress-test with worst-case data.** Try the longest label, zero, negative values, a single category, hundreds of categories, a missing period, an extreme outlier, and a filter combination that returns nothing.
+
+**R137. Test with target users against the question list.** Give users the R3 questions, then measure time to answer and accuracy, and watch where they look and what they misread. For glanceable dashboards, a few-second exposure followed by "what's the state of things?" checks whether the hierarchy works.
+
+**R138. Instrument usage.** Track which views, filters, and tiles are used, and prune what is not.
+
+**R139. Retire dashboards.** Set a review date at launch and archive dashboards nobody opens. Dashboard sprawl splinters definitions and undermines R10.
+
+**R140. Version definitions and design.** Keep a changelog visible to users, and announce metric changes before they land (R28).
+
+**R141. Name an owner for the dashboard as a whole.** Show the owner on the dashboard alongside a feedback channel, in addition to the owners of individual metrics.
+
+**R142. Plan to iterate.** The first version of a dashboard is a hypothesis about what users need. Schedule revision after observing real use.
+
+---
+
+## Part 17 — Rules weaker than their reputation
+
+**"Never use pie charts."** Pies are poor for precise comparison across many slices, but for two or three parts they communicate part-to-whole adequately. Skau and Kosara (2016) found that readers judge slices more by area and arc length than by central angle, which undercuts some of the standard angle-based arguments, including the usual critique of donuts. The real rule is narrower: do not use a pie when the task is comparison.
+
+**"Always start the y-axis at zero."** This is absolute for bars and wrong as a universal. For line charts, a zero baseline can flatten meaningful variation (body temperature, interest rates, a stock price). Correll et al. (2020) show the cost of truncation is real, which makes it a tradeoff to manage rather than a rule to recite.
+
+**"Maximize the data-ink ratio."** Tufte's principle is a good antidote to clutter, but as an optimization target it is not well supported. Bateman et al. (2010) found embellished charts were read as accurately as plain ones and remembered better, and Borkin et al. (2013) identified features that make visualizations memorable. For operational dashboards used daily, speed matters more than memorability, so restraint usually wins, but the justification is scan speed, not ink purity.
+
+**"Seven plus or minus two."** Miller's 1956 paper concerned short-term memory span for simple stimuli. Later estimates put working-memory capacity nearer four chunks (Cowan, 2001), and in any case dashboards are not memorized; the user can look again. The real constraint is visual search and attention, and Miller is not a source for a tile limit.
+
+**"The five-second rule."** It is a useful test for glanceable monitoring dashboards and actively wrong for analytical dashboards built for an hour of exploration.
+
+**"A dashboard must fit on one screen."** This comes from Few's definition and is right for monitoring. Analytical and narrative dashboards legitimately scroll. Keep the spirit of the rule through R42: the first screen must answer the first question.
+
+**"Always write takeaway titles."** Excellent for presentations and narrative dashboards. On a live dashboard, a static takeaway title becomes false after the next refresh.
+
+**"RAG status is best practice."** It is ubiquitous, not best. It discards magnitude, hides trend, fails users with red–green color vision deficiency, and usually rests on arbitrary thresholds. Keep it only with redundant encoding and the underlying value beside it (R84, R118).
+
+**"More interactivity is better."** Every control multiplies the states a dashboard can be in, and many users never leave the default view. Interactivity is a cost that must buy something (R104, R105).
+
+**"Dual axes are always wrong."** Avoid them in general dashboards. They can be acceptable when both series share a unit, or in expert genres with a fixed convention, such as Walter–Lieth climate diagrams, which plot temperature and precipitation at a standard 10 °C to 20 mm ratio.
+
+**"Dashboards drive data-driven decisions."** Many dashboards are built and rarely opened, and the existence of a dashboard is not evidence that it changes any decision. Measure use (R138) and ask which decision changed.
+
+---
+
+## Part 18 — Pre-ship checklist
+
+1. The decision, the audience, and the ranked questions are written down, and every element traces to a question (R1–R3).
+2. Every metric has a definition reachable in one click, and names and values agree across the suite (R9, R10).
+3. Every headline number has an explicit comparison and a trend (R31–R36).
+4. The as-of timestamp is visible, and stale data and partial periods are flagged (R19–R21).
+5. Missing data shows as missing, and forecasts and estimates look different from actuals (R22, R25).
+6. Uncertainty is shown and small samples are flagged (R23, R24).
+7. The first screen answers the top question with no interaction (R42, R104).
+8. Bars start at zero, non-zero line baselines and log scales are labeled, and small multiples share scales (R68–R72).
+9. There are no gauges, 3D charts, rainbow palettes, or dual axes without justification (R56, R58, R65, R79).
+10. Color carries meaning, is consistent across views, and never stands alone (R77, R82, R84).
+11. Contrast meets WCAG minimums, and the dashboard passes grayscale and color-vision-deficiency checks (R85, R88).
+12. Labels are direct, units are stated, dates are unambiguous, and precision is sensible (R91–R96).
+13. Active filters are visible, their scope is obvious, state is shareable, and exports carry context (R106, R107, R111, R113).
+14. Thresholds are based on variation, and alarm states are rare enough to matter (R115–R117).
+15. Charts have text summaries and accessible data tables, and everything is keyboard-operable (R114, R120, R121).
+16. The dashboard has been tested with worst-case data and with empty and error states (R128, R136).
+17. Real users have been tested against the question list (R137).
+18. An owner, a feedback channel, usage tracking, and a review date are in place (R138–R141).
+
+---
+
+## References and further reading
+
+**Books**
+
+- Cairo, A. (2019). *How Charts Lie: Getting Smarter about Visual Information*. W. W. Norton.
+- Cleveland, W. S. (1994). *The Elements of Graphing Data* (rev. ed.). Hobart Press.
+- Few, S. (2013). *Information Dashboard Design: Displaying Data for At-a-Glance Monitoring* (2nd ed.). Analytics Press.
+- Few, S. (2012). *Show Me the Numbers: Designing Tables and Graphs to Enlighten* (2nd ed.). Analytics Press.
+- Knaflic, C. N. (2015). *Storytelling with Data*. Wiley.
+- Munzner, T. (2014). *Visualization Analysis and Design*. CRC Press.
+- Tufte, E. R. (2001). *The Visual Display of Quantitative Information* (2nd ed.). Graphics Press.
+- Tufte, E. R. (2006). *Beautiful Evidence*. Graphics Press.
+- Ware, C. (2020). *Information Visualization: Perception for Design* (4th ed.). Morgan Kaufmann.
+- Wexler, S., Shaffer, J., & Cotgreave, A. (2017). *The Big Book of Dashboards*. Wiley.
+- Wheeler, D. J. (2000). *Understanding Variation: The Key to Managing Chaos* (2nd ed.). SPC Press.
+
+**Perception and encoding**
+
+- Anscombe, F. J. (1973). Graphs in statistical analysis. *The American Statistician*, 27(1).
+- Cleveland, W. S., & McGill, R. (1984). Graphical perception: Theory, experimentation, and application to the development of graphical methods. *Journal of the American Statistical Association*, 79(387).
+- Heer, J., & Bostock, M. (2010). Crowdsourcing graphical perception: Using Mechanical Turk to assess visualization design. *Proceedings of CHI 2010*.
+- Mackinlay, J. (1986). Automating the design of graphical presentations of relational information. *ACM Transactions on Graphics*, 5(2).
+- Matejka, J., & Fitzmaurice, G. (2017). Same stats, different graphs. *Proceedings of CHI 2017*.
+- Skau, D., & Kosara, R. (2016). Arcs, angles, or areas: Individual data encodings in pie and donut charts. *Computer Graphics Forum*, 35(3).
+
+**Dashboards, interaction, and design debates**
+
+- Bach, B., et al. (2023). Dashboard design patterns. *IEEE Transactions on Visualization and Computer Graphics*, 29(1).
+- Bateman, S., et al. (2010). Useful junk? The effects of visual embellishment on comprehension and memorability of charts. *Proceedings of CHI 2010*.
+- Borkin, M. A., et al. (2013). What makes a visualization memorable? *IEEE Transactions on Visualization and Computer Graphics*, 19(12).
+- Correll, M., Bertini, E., & Franconeri, S. (2020). Truncating the y-axis: Threat or menace? *Proceedings of CHI 2020*.
+- Heer, J., & Robertson, G. (2007). Animated transitions in statistical data graphics. *IEEE Transactions on Visualization and Computer Graphics*, 13(6).
+- Liu, Z., & Heer, J. (2014). The effects of interactive latency on exploratory visual analysis. *IEEE Transactions on Visualization and Computer Graphics*, 20(12).
+- Romano, A., Sotis, C., Dominioni, G., & Guidi, S. (2020). The scale of COVID-19 graphs affects understanding, attitudes, and policy preferences. *Health Economics*, 29(11).
+- Sarikaya, A., Correll, M., Bartram, L., Tory, M., & Fisher, D. (2019). What do we talk about when we talk about dashboards? *IEEE Transactions on Visualization and Computer Graphics*, 25(1).
+- Shneiderman, B. (1996). The eyes have it: A task by data type taxonomy for information visualizations. *Proceedings of the IEEE Symposium on Visual Languages*.
+
+**Color, cognition, and accessibility**
+
+- Borland, D., & Taylor, R. M. (2007). Rainbow color map (still) considered harmful. *IEEE Computer Graphics and Applications*, 27(2).
+- Cowan, N. (2001). The magical number 4 in short-term memory. *Behavioral and Brain Sciences*, 24(1).
+- Crameri, F., Shephard, G. E., & Heron, P. J. (2020). The misuse of colour in science communication. *Nature Communications*, 11.
+- Harrower, M., & Brewer, C. A. (2003). ColorBrewer.org: An online tool for selecting colour schemes for maps. *The Cartographic Journal*, 40(1).
+- Miller, G. A. (1956). The magical number seven, plus or minus two. *Psychological Review*, 63(2).
+- W3C (2023). *Web Content Accessibility Guidelines (WCAG) 2.2*.

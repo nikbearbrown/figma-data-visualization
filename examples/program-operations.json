@@ -1,0 +1,225 @@
+{
+  "title": "Program operations",
+  "audience": "Program managers",
+  "purpose": "Identify late cases and choose teams for follow-up",
+  "type": "operational",
+  "owner": "Program operations",
+  "period": "Cases due 2\u20138 Nov 2026",
+  "as_of": "2026-11-08T23:59:00-05:00",
+  "refreshed_at": "2026-11-09T08:00:00-05:00",
+  "timezone": "America/New_York",
+  "data_kind": "synthetic",
+  "questions": [
+    {
+      "id": "Q1",
+      "text": "Are eligible cases being resolved by deadline?"
+    },
+    {
+      "id": "Q2",
+      "text": "Which teams need follow-up?"
+    }
+  ],
+  "records": [
+    {
+      "team": "North",
+      "resolved": 28,
+      "eligible": 30
+    },
+    {
+      "team": "South",
+      "resolved": 22,
+      "eligible": 30
+    },
+    {
+      "team": "East",
+      "resolved": 18,
+      "eligible": 20
+    },
+    {
+      "team": "West",
+      "resolved": 16,
+      "eligible": 20
+    }
+  ],
+  "metrics": [
+    {
+      "id": "on-time",
+      "name": "Eligible cases resolved by deadline",
+      "formula": "sum(resolved) / sum(eligible) * 100",
+      "aggregation": "rate",
+      "numerator": "resolved",
+      "denominator": "eligible",
+      "unit": "percent",
+      "grain": "one team for the stated week",
+      "population": "cases due in the stated week",
+      "exclusions": "training cases",
+      "source": "Synthetic illustration supplied with this toolkit",
+      "owner": "Program operations",
+      "definition_version": "1",
+      "caveats": "Demonstration only; no real people or cases",
+      "direction": "higher"
+    }
+  ],
+  "panels": [
+    {
+      "id": "P1",
+      "question_id": "Q1",
+      "metric_id": "on-time",
+      "title": "On-time resolution",
+      "chart": "kpi",
+      "rationale": "Headline status with comparable prior period",
+      "summary": "84 of 100 eligible cases; improved from 80% but below the 90% target.",
+      "definition": "Resolved by deadline / eligible cases",
+      "comparison": {
+        "label": "Previous comparable week",
+        "value": 80
+      },
+      "target": {
+        "value": 90,
+        "kind": "target",
+        "rationale": "Illustrative program goal"
+      },
+      "series": [
+        {
+          "date": "2026-10-18",
+          "label": "18 Oct",
+          "value": 76
+        },
+        {
+          "date": "2026-10-25",
+          "label": "25 Oct",
+          "value": 80
+        },
+        {
+          "date": "2026-11-01",
+          "label": "1 Nov",
+          "value": null
+        },
+        {
+          "date": "2026-11-08",
+          "label": "8 Nov",
+          "value": 84
+        }
+      ]
+    },
+    {
+      "id": "P2",
+      "question_id": "Q2",
+      "metric_id": "on-time",
+      "title": "Resolution by team",
+      "chart": "bar",
+      "rationale": "Aligned positions compare team rates",
+      "summary": "South has the lowest rate; inspect late cases before assigning cause.",
+      "definition": "Team resolved / team eligible; percentage",
+      "series": [
+        {
+          "label": "North",
+          "value": 93.33333333333333
+        },
+        {
+          "label": "South",
+          "value": 73.33333333333333
+        },
+        {
+          "label": "East",
+          "value": 90
+        },
+        {
+          "label": "West",
+          "value": 80
+        }
+      ]
+    },
+    {
+      "id": "P3",
+      "question_id": "Q1",
+      "metric_id": "on-time",
+      "title": "Weekly resolution",
+      "chart": "line",
+      "rationale": "Time trend with an explicitly missing observation",
+      "summary": "The 1 Nov observation is unavailable, not zero.",
+      "definition": "Weekly pooled resolution rate",
+      "series": [
+        {
+          "date": "2026-10-18",
+          "label": "18 Oct",
+          "value": 76
+        },
+        {
+          "date": "2026-10-25",
+          "label": "25 Oct",
+          "value": 80
+        },
+        {
+          "date": "2026-11-01",
+          "label": "1 Nov",
+          "value": null
+        },
+        {
+          "date": "2026-11-08",
+          "label": "8 Nov",
+          "value": 84
+        }
+      ]
+    },
+    {
+      "id": "P4",
+      "question_id": "Q2",
+      "metric_id": "on-time",
+      "title": "Exact team values",
+      "chart": "table",
+      "rationale": "Exact lookup alongside the comparison",
+      "summary": "Values use the same synthetic team data as the bar chart.",
+      "definition": "Team resolution rate, percent",
+      "series": [
+        {
+          "label": "North",
+          "value": 93.33333333333333
+        },
+        {
+          "label": "South",
+          "value": 73.33333333333333
+        },
+        {
+          "label": "East",
+          "value": 90
+        },
+        {
+          "label": "West",
+          "value": 80
+        }
+      ]
+    }
+  ],
+  "states": [
+    "default",
+    "loading",
+    "empty",
+    "no-source-data",
+    "error",
+    "partial",
+    "stale",
+    "denied"
+  ],
+  "filters": [
+    {
+      "id": "F1",
+      "label": "Teams",
+      "value": "All four teams",
+      "scope": "all",
+      "combination": "AND",
+      "reset": "All four teams"
+    }
+  ],
+  "theme": {
+    "background": "#F5F7FA",
+    "surface": "#FFFFFF",
+    "text": "#142538",
+    "muted": "#475569",
+    "accent": "#155EAB",
+    "border": "#CBD5E1",
+    "warning": "#854D0E",
+    "font_family": "Inter",
+    "font_style": "Regular"
+  }
+}

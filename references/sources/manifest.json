@@ -1,0 +1,20 @@
+{
+  "received": "2026-11-14",
+  "sources": [
+    {
+      "file": "references/sources/dashboard-rules-original.txt",
+      "bytes": 30190,
+      "sha256": "e24b57efcff50ff032f854ae6e3708be6514ad95764043fecd82517c200c461b"
+    },
+    {
+      "file": "references/sources/dashboard-rules-comprehensive.txt",
+      "bytes": 42055,
+      "sha256": "bf3df6874861c104de1ba2ea79acc73c6b26c9b5d15ab39023d47ce8715897b4"
+    }
+  ],
+  "reference_repository": {
+    "url": "https://github.com/nikbearbrown/figma-appdesigner",
+    "commit": "d46ea07f93aa9b2183a38bfa7ed6a3d90eb5cdd2",
+    "use": "Workflow reference; new implementation. No claim of inherited live testing."
+  }
+}
